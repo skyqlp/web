@@ -2,9 +2,9 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item of list" :key="item.id">
+      <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
         <div class="item-img-wrapper">
-          <img class="item-img" :src="item.imgUrl" alt>
+          <img class="item-img" :src="item.imgSrc" alt>
         </div>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,28 +17,11 @@
 <script>
 export default {
   name: "weekend",
+  props: {
+    weekendList: Array
+  },
   data() {
     return {
-       list: [
-        {
-          id: "0001",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        },
-        {
-          id: "0002",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        },
-        {
-          id: "0003",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        }
-      ]
     };
   }
 };

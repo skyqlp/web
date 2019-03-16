@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <li class="itme" v-for="item in recommendlist" :key="item.id">
-        <img class="itme-img" :src="item.imgUrl" alt>
+        <img class="itme-img" :src="item.imgSrc" alt>
         <div class="itme-info">
           <p class="itme-title">{{item.title}}</p>
           <p class="itme-desc">{{item.desc}}</p>
@@ -16,28 +16,11 @@
 <script>
 export default {
   name: "recommend",
+  props: {
+    recommendlist: Array
+  },
   data() {
     return {
-      recommendlist: [
-        {
-          id: "0001",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        },
-        {
-          id: "0002",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        },
-        {
-          id: "0003",
-          imgUrl: "",
-          title: "",
-          desc: ""
-        }
-      ]
     };
   }
 };

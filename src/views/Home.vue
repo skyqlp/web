@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <HomeHeader></HomeHeader>
-    <HomeSweiper></HomeSweiper>
-    <Homeicons></Homeicons>
-    <homerecommend></homerecommend>
-    <HomeWeekend></HomeWeekend>
+    <HomeHeader :city='city'></HomeHeader>
+    <HomeSweiper :list='swiperlist'></HomeSweiper>
+    <Homeicons :iconlist='iconlist'></Homeicons>
+    <homerecommend :recommendlist='recommendlist'></homerecommend>
+    <HomeWeekend :weekendList="weekendList"></HomeWeekend>
   </div>
 </template>
 
@@ -19,7 +19,11 @@ export default {
   name: 'home',
   data() {
     return {
-      age: 1,
+      city: '',
+      swiperlist: [],
+      iconlist: [],
+      recommendlist: [],
+      weekendList: []
     };
   },
   components: {
@@ -28,6 +32,27 @@ export default {
     Homeicons,
     'homerecommend': recommend,
     HomeWeekend
+  },
+  methods: {
+    gethomeinfo(){
+      this.$http.get('/api/index.json')
+      .then(this.gethomeinfosucc)
+    },
+    gethomeinfosucc(res){
+      res = res.data
+      if(res.ret&&res.data){
+        const data = res.data
+        this.city = data.city
+        this.swiperlist = data.swiperList
+        this.iconlist = data.iconList
+        this.recommendlist = data.recommendList
+        this.weekendList = data.weekendList
+      }
+      console.log(res)
+    }
+  },
+  mounted(){
+    this.gethomeinfo()
   }
 };
 </script>
