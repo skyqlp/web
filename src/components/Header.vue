@@ -7,10 +7,16 @@
       <span class="sky">&#xe632;</span>
       输入城市游玩主题
     </div>
-    <div class="header-right">
-      {{this.city}}
-      <span class="sky arrow-icon">&#xe6aa;</span>
-    </div>
+    <router-link 
+     to='/city'
+    tag="div"
+    >
+      <div class="header-right">
+        {{this.city}}
+        <span class="sky arrow-icon">&#xe6aa;</span>
+      </div>
+    </router-link>
+    
   </div>
 </template>
 

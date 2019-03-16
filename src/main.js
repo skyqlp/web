@@ -4,6 +4,7 @@ import Axios from 'axios';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'swiper/dist/css/swiper.css';
 import './assets/border.css';
