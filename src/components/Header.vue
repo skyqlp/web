@@ -12,7 +12,7 @@
     tag="div"
     >
       <div class="header-right">
-        {{this.city}}
+        {{this.$store.state.city}}
         <span class="sky arrow-icon">&#xe6aa;</span>
       </div>
     </router-link>
