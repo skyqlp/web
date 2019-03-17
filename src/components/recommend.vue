@@ -2,14 +2,20 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="itme" v-for="item in recommendlist" :key="item.id">
+      <router-link
+        tag="li"
+        :to="'/datail/'+item.id"
+        class="itme"
+        v-for="item in recommendlist"
+        :key="item.id"
+      >
         <img class="itme-img" :src="item.imgSrc" alt>
         <div class="itme-info">
           <p class="itme-title">{{item.title}}</p>
           <p class="itme-desc">{{item.desc}}</p>
           <button class="itme-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -20,8 +26,7 @@ export default {
     recommendlist: Array
   },
   data() {
-    return {
-    };
+    return {};
   }
 };
 </script>

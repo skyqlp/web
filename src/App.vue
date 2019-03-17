@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-    </div>
-    <router-view/>
+    <keep-alive exclude="datail">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 <style lang="stylus">
